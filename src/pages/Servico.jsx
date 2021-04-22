@@ -172,6 +172,7 @@ export default function Servico() {
                 onClickEditar={handleEditar}
                 onClickExcluir={excluirRegistro}
                 data={dadosTable}
+                possuiActions={true}
                 columns={[{
                     title: 'Código',
                     field: 'idServico',

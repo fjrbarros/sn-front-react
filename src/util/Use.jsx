@@ -11,7 +11,8 @@ const Use = {
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Sim',
-        cancelButtonText: 'Não'
+        cancelButtonText: 'Não',
+        customClass: { container: 'msg-swal' }
     }).then(result => {
         if (result.isConfirmed) {
             if (typeof cbYes === 'function') {
@@ -31,7 +32,17 @@ const Use = {
         text: msg || '',
         icon: 'info',
         confirmButtonColor: '#3085d6',
-        confirmButtonText: 'Ok'
+        confirmButtonText: 'Ok',
+        customClass: { container: 'msg-swal' }
+    }),
+
+    success: (title, msg) => Swal.fire({
+        title: title || 'Sucesso',
+        text: msg || '',
+        icon: 'success',
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'Ok',
+        customClass: { container: 'msg-swal' }
     }),
 
     error: (title, msg) => Swal.fire({
@@ -39,7 +50,8 @@ const Use = {
         text: msg || '',
         icon: 'error',
         confirmButtonColor: '#3085d6',
-        confirmButtonText: 'Ok'
+        confirmButtonText: 'Ok',
+        customClass: { container: 'msg-swal' }
     }),
 
     notify: (msg, duration) => toast.notify(msg || '', { duration: duration || 2000 })

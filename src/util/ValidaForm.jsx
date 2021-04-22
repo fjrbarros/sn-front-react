@@ -5,39 +5,35 @@ export function validaFormServico(values, errorFn) {
 
         msg = validaNomeServico(values.nomeServico)
 
-        if (!!msg) {
-            errorFn('nomeServico', msg);
-        }
+        if (!!msg) errorFn('nomeServico', msg);
+
     }
 
     if (values.hasOwnProperty('valorHora')) {
         msg = validaValorHora(values.valorHora)
 
-        if (!!msg) {
-            errorFn('valorHora', msg);
-        }
+        if (!!msg) errorFn('valorHora', msg);
+
     }
 }
 
 export function validaFormPedido(values, errorFn) {
     let msg;
 
-    if (values.hasOwnProperty('nomeUsuario')) {
+    if (values.hasOwnProperty('usuario')) {
 
-        msg = validaNomeUsuario(values.nomeUsuario)
+        msg = validaUsuario(values.usuario)
 
-        if (!!msg) {
-            errorFn('nomeUsuario', msg);
-        }
+        if (!!msg) errorFn('usuario', msg);
+
     }
 
     if (values.hasOwnProperty('percentualImposto')) {
 
         msg = validaPercentualImposto(values.percentualImposto)
 
-        if (!!msg) {
-            errorFn('percentualImposto', msg);
-        }
+        if (!!msg) errorFn('percentualImposto', msg);
+
     }
 }
 
@@ -49,7 +45,7 @@ function validaValorHora(value) {
     return !value.toString().trim() ? 'Valor hora obrigatório!' : '';
 }
 
-function validaNomeUsuario(value) {
+function validaUsuario(value) {
     return !value.toString().trim() ? 'Nome usuário obrigatório!' : '';
 }
 

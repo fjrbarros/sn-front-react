@@ -44,7 +44,8 @@ export default function Table(props) {
         maxHeight,
         minHeight,
         onClickEditar,
-        onClickExcluir
+        onClickExcluir,
+        possuiActions
     } = props;
 
     return (
@@ -94,23 +95,19 @@ export default function Table(props) {
                                 }
                             </Box>
                             <Box style={{ flex: 1 }}></Box>
-                            <Box>
-                                <MTableToolbar {...props} />
-                            </Box>
+                            <Box> <MTableToolbar {...props} /> </Box>
                         </Box>
                     ),
                 }}
-                actions={
-                    [{
-                        icon: () => <EditIcon style={{ color: '#6d6c6c' }} />,
-                        onClick: (event, rowData) => onClickEditar(rowData),
-                        hidden: typeof onClickEditar !== 'function'
-                    }, {
-                        icon: () => <DeleteForeverIcon style={{ color: '#6d6c6c' }} />,
-                        onClick: (event, rowData) => onClickExcluir(rowData),
-                        hidden: typeof onClickExcluir !== 'function'
-                    }]
-                }
+                actions={possuiActions ? [{
+                    icon: () => <EditIcon style={{ color: '#6d6c6c' }} />,
+                    onClick: (event, rowData) => onClickEditar(rowData),
+                    hidden: typeof onClickEditar !== 'function'
+                }, {
+                    icon: () => <DeleteForeverIcon style={{ color: '#6d6c6c' }} />,
+                    onClick: (event, rowData) => onClickExcluir(rowData),
+                    hidden: typeof onClickExcluir !== 'function'
+                }] : null}
             />
         </MuiThemeProvider>
     );
